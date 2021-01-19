@@ -38,6 +38,7 @@ Take a look in the examples folder for examples how to implement with the Teensy
 ## TODO
 * Add other basic waveforms other than square and saw wave
 * Add example on how to use a lookup table with the --compact option
+* Add example on how to make a pulse wave with variable duty cycle
 * Add more generated headers that are ready for use
 * Add sound examples.
 
