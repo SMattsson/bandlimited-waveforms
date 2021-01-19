@@ -49,26 +49,6 @@ class WaveformTable:
             note += 1 
         return square_table
 
-    def get_square_table(self):
-        table = self._generate_square_table(self._generate_freq_list(const.NUM_OF_NOTES), const.NUM_OF_SAMPLES, const.MAX_FREQUENCY)
-        table = self._multiply(table, const.MAX_AMPLITUDE)
-        table = self._convert_to_int_list(table)
-        output = self._table_message
-        output += 'const int16_t squareTable'
-        output += f'[{const.NUM_OF_NOTES}][{const.NUM_OF_SAMPLES}] = '
-        tmp = str(table).replace('[', '{').replace(']', '}')
-        return output + tmp + ';'
-
-    def get_square_table_compact(self):
-        table = self._generate_square_table(self._generate_freq_list(const.NUM_OF_NOTES_DIV_2), const.NUM_OF_SAMPLES, const.MAX_FREQUENCY)
-        table = self._multiply(table, const.MAX_AMPLITUDE)
-        table = self._convert_to_int_list(table)
-        output = self._table_message
-        output += 'const int16_t squareTableCompact'
-        output += f'[{const.NUM_OF_NOTES_DIV_2}][{const.NUM_OF_SAMPLES}] = '
-        tmp = str(table).replace('[', '{').replace(']', '}')
-        return output + tmp + ';'
-
     def _generate_saw_table(self, freq_list, num_of_samples, max_frequency):
         saw_table = []
         note = 0
@@ -88,22 +68,34 @@ class WaveformTable:
             note += 1 
         return saw_table
 
-    def get_saw_table(self):
-        table = self._generate_saw_table(self._generate_freq_list(const.NUM_OF_NOTES), const.NUM_OF_SAMPLES, const.MAX_FREQUENCY)
-        table = self._multiply(table, const.MAX_AMPLITUDE)
-        table = self._convert_to_int_list(table)
-        output = self._table_message
-        output += 'const int16_t sawTable'
-        output += f'[{const.NUM_OF_NOTES}][{const.NUM_OF_SAMPLES}] = '
-        tmp = str(table).replace('[', '{').replace(']', '}')
-        return output + tmp + ';'
 
-    def get_saw_table_compact(self):
-        table = self._generate_saw_table(self._generate_freq_list(const.NUM_OF_NOTES_DIV_2), const.NUM_OF_SAMPLES, const.MAX_FREQUENCY)
+
+    def get_table(self, waveform = 'square'):
+        if waveform == 'square':
+            table = self._generate_square_table(self._generate_freq_list(const.NUM_OF_NOTES), const.NUM_OF_SAMPLES, const.MAX_FREQUENCY)
+        elif waveform == 'square_compact':
+            table = self._generate_square_table(self._generate_freq_list(const.NUM_OF_NOTES_DIV_2), const.NUM_OF_SAMPLES, const.MAX_FREQUENCY)
+        elif waveform == 'saw':
+            table = self._generate_saw_table(self._generate_freq_list(const.NUM_OF_NOTES), const.NUM_OF_SAMPLES, const.MAX_FREQUENCY)
+        elif waveform == 'saw_compact':
+            table = self._generate_saw_table(self._generate_freq_list(const.NUM_OF_NOTES_DIV_2), const.NUM_OF_SAMPLES, const.MAX_FREQUENCY)
+        
         table = self._multiply(table, const.MAX_AMPLITUDE)
         table = self._convert_to_int_list(table)
         output = self._table_message
-        output += 'const int16_t sawTableCompact'
-        output += f'[{const.NUM_OF_NOTES_DIV_2}][{const.NUM_OF_SAMPLES}] = '
+
+        if waveform == 'square':
+            output += 'const int16_t squareTable'
+            output += f'[{const.NUM_OF_NOTES}][{const.NUM_OF_SAMPLES}] = '
+        elif waveform == 'square_compact':
+            output += 'const int16_t squareTableCompact'
+            output += f'[{const.NUM_OF_NOTES_DIV_2}][{const.NUM_OF_SAMPLES}] = '
+        elif waveform == 'saw':
+            output += 'const int16_t sawTable'
+            output += f'[{const.NUM_OF_NOTES}][{const.NUM_OF_SAMPLES}] = '
+        elif waveform == 'saw_compact':
+            output += 'const int16_t sawTableCompact'
+            output += f'[{const.NUM_OF_NOTES_DIV_2}][{const.NUM_OF_SAMPLES}] = '
+        
         tmp = str(table).replace('[', '{').replace(']', '}')
         return output + tmp + ';'

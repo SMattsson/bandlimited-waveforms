@@ -23,21 +23,21 @@ if __name__ == "__main__":
     elif sys.argv[1] == '--square':
         if compact:
             file = open('square_table_compact.h', 'w')
-            file.write(waveform_table.get_square_table_compact())
+            file.write(waveform_table.get_table('square_compact'))
             file.close()
         else:
             file = open('square_table.h', 'w')
-            file.write(waveform_table.get_square_table())
+            file.write(waveform_table.get_table('square'))
             file.close()
         print("done!")
     elif sys.argv[1] == '--saw':
         if compact:
             file = open('saw_table_compact.h', 'w')
-            file.write(waveform_table.get_saw_table_compact())
+            file.write(waveform_table.get_table('saw_compact'))
             file.close()
         else:
             file = open('saw_table.h', 'w')
-            file.write(waveform_table.get_saw_table())
+            file.write(waveform_table.get_table('saw'))
             file.close()
         print("done!")
     elif sys.argv[1] == '--invsaw':
