@@ -68,3 +68,42 @@ class WaveformTable:
         output += f'[{const.NUM_OF_NOTES_DIV_2}][{const.NUM_OF_SAMPLES}] = '
         tmp = str(table).replace('[', '{').replace(']', '}')
         return output + tmp + ';'
+
+    def _generate_saw_table(self, freq_list, num_of_samples, max_frequency):
+        saw_table = []
+        note = 0
+        while note < len(freq_list):
+            tmp = [0 for x in range(num_of_samples)]
+            saw_table.append(tmp)
+            note += 1
+        note = 0
+        while note < len(freq_list):
+            freq = freq_list[note]
+            number_of_overtones = int(max_frequency / freq)
+            multiplier = 1
+            while multiplier <= number_of_overtones:
+                for sample in range (num_of_samples):
+                    saw_table[note][sample] += math.sin(multiplier * sample / (num_of_samples / 2) * math.pi) / multiplier
+                multiplier += 1
+            note += 1 
+        return saw_table
+
+    def get_saw_table(self):
+        table = self._generate_saw_table(self._generate_freq_list(const.NUM_OF_NOTES), const.NUM_OF_SAMPLES, const.MAX_FREQUENCY)
+        table = self._multiply(table, const.MAX_AMPLITUDE)
+        table = self._convert_to_int_list(table)
+        output = self._table_message
+        output += 'const int16_t sawTable'
+        output += f'[{const.NUM_OF_NOTES}][{const.NUM_OF_SAMPLES}] = '
+        tmp = str(table).replace('[', '{').replace(']', '}')
+        return output + tmp + ';'
+
+    def get_saw_table_compact(self):
+        table = self._generate_saw_table(self._generate_freq_list(const.NUM_OF_NOTES_DIV_2), const.NUM_OF_SAMPLES, const.MAX_FREQUENCY)
+        table = self._multiply(table, const.MAX_AMPLITUDE)
+        table = self._convert_to_int_list(table)
+        output = self._table_message
+        output += 'const int16_t sawTableCompact'
+        output += f'[{const.NUM_OF_NOTES_DIV_2}][{const.NUM_OF_SAMPLES}] = '
+        tmp = str(table).replace('[', '{').replace(']', '}')
+        return output + tmp + ';'

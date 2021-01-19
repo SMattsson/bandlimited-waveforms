@@ -31,7 +31,15 @@ if __name__ == "__main__":
             file.close()
         print("done!")
     elif sys.argv[1] == '--saw':
-        pass
+        if compact:
+            file = open('saw_table_compact.h', 'w')
+            file.write(waveform_table.get_saw_table_compact())
+            file.close()
+        else:
+            file = open('saw_table.h', 'w')
+            file.write(waveform_table.get_saw_table())
+            file.close()
+        print("done!")
     elif sys.argv[1] == '--invsaw':
         pass
     elif sys.argv[1] == '--triangle':
