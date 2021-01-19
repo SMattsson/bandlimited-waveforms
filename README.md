@@ -17,6 +17,8 @@ Using these will result in a clearer tone with less distortion, but at the cost 
 Try out the test code compareWaveform.ino found in the examples folder for a comparison between
 bandlimited and non-bandlimited square waves.
 
+If you just want the header files that you can include in your project, get them from the generated_headers folder.
+
 ## Setup
 To run this script you'll need to have Python 3.x installed.
 For usage see the code examples below or run the script with the command python3 `python3 blwftal --help`
@@ -34,9 +36,9 @@ This will make a header who utilizes half the flash space of the previous one, a
 Take a look in the examples folder for examples how to implement with the Teensy Audio Library.
 
 ## TODO
-* Add the other basic waveforms other than square wave
+* Add other basic waveforms other than square and saw wave
 * Add example on how to use a lookup table with the --compact option
-* Add generated headers that are ready for use
+* Add more generated headers that are ready for use
 * Add sound examples.
 
 ## Status
