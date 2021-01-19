@@ -28,14 +28,14 @@ It will generate a header file square_table.h that you can include in your Teens
 who utilizes about 65k of flash
 
 To make a lookup table who uses less flash execute:
-`python3 blwftal --square --shrink`
+`python3 blwftal --square --compact`
 This will make a header who utilizes half the flash space of the previous one, about 32k.
 
 Take a look in the examples folder for examples how to implement with the Teensy Audio Library.
 
 ## TODO
 * Add the other basic waveforms other than square wave
-* Add example on how to use a lookup table with the --shrink option
+* Add example on how to use a lookup table with the --compact option
 * Add generated headers that are ready for use
 * Add sound examples.
 
