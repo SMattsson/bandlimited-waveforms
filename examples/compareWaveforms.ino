@@ -1,12 +1,13 @@
 /*
+  From repo:
   https://github.com/SMattsson/bandlimited-waveforms/examples
 
   This program compares the built in squarewave and a bandlimited lookup table
   in the AudioSynthWaveform object in the Teensy Audio Library
 
-  Headphones is recommened to critical lissening.
-  You'll hear that the original has some distortion in it, and that's because of aliasing.
-  You can read more about it here 
+  Headphones is recommended for critical listening.
+  You'll hear that the original has some distortion in it. That's because of aliasing.
+  You can read more about it here: 
   https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem#Aliasing
 
   The lookup table from the square_table.h uses 65536 bytes
