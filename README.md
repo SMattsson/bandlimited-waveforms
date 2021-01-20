@@ -36,10 +36,8 @@ This will make a header that utilizes half the flash space of the previous one, 
 Take a look in the examples folder for example how to implement with the Teensy Audio Library.
 
 ## TODO
-* Add other basic waveforms other than square and saw wave
 * Add an example on how to use a lookup table with the --compact option
 * Add an example on how to make a pulse wave with a variable duty cycle
-* Add more generated headers that are ready for use
 * Add sound examples.
 
 ## Status
