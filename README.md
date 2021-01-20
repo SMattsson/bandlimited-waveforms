@@ -36,9 +36,9 @@ This will make a header that utilizes half the flash space of the previous one, 
 Take a look in the examples folder for example how to implement with the Teensy Audio Library.
 
 ## TODO
-* Add an example on how to use a lookup table with the --compact option
 * Add an example on how to make a pulse wave with a variable duty cycle
 * Add sound examples.
+* `--all` option not implemented yet.
 
 ## Status
 Project is: _in progress_
