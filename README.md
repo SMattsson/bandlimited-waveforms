@@ -9,7 +9,7 @@
 * [Status](#status)
 
 ## General info
-This is a open source tool developed in Python that can generate lookup tables to be used with the
+This is an open source tool developed in Python that can generate lookup tables to be used with the
 Teensy Audio Library. The tool generates header files that can be included in your project to play
 the standard waveforms bandlimited (without harmonic frequencies above 22.05kHz).
 
@@ -29,16 +29,16 @@ To generate a lookup table for a square wave execute:
 It will generate a header file square_table.h that you can include in your Teensy audio library project
 who utilizes about 65k of flash
 
-To make a lookup table who uses less flash execute:
+To make a lookup table that uses less flash execute:
 `python3 blwftal --square --compact`
-This will make a header who utilizes half the flash space of the previous one, about 32k.
+This will make a header that utilizes half the flash space of the previous one, about 32k.
 
-Take a look in the examples folder for examples how to implement with the Teensy Audio Library.
+Take a look in the examples folder for example how to implement with the Teensy Audio Library.
 
 ## TODO
 * Add other basic waveforms other than square and saw wave
-* Add example on how to use a lookup table with the --compact option
-* Add example on how to make a pulse wave with variable duty cycle
+* Add an example on how to use a lookup table with the --compact option
+* Add an example on how to make a pulse wave with a variable duty cycle
 * Add more generated headers that are ready for use
 * Add sound examples.
 
