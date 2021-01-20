@@ -121,7 +121,7 @@ class WaveformTable:
             table = self._generate_inverted_saw_table(self._generate_freq_list(const.NUM_OF_NOTES_DIV_2), const.NUM_OF_SAMPLES, const.MAX_FREQUENCY)
         elif waveform == 'triangle':
             table = self._generate_triangle_table(self._generate_freq_list(const.NUM_OF_NOTES), const.NUM_OF_SAMPLES, const.MAX_FREQUENCY)
-        elif waveform == 'inverted_saw_compact':
+        elif waveform == 'triangle_compact':
             table = self._generate_triangle_table(self._generate_freq_list(const.NUM_OF_NOTES_DIV_2), const.NUM_OF_SAMPLES, const.MAX_FREQUENCY)
             
         table = self._multiply(table, const.MAX_AMPLITUDE)
