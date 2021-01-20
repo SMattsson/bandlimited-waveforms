@@ -41,9 +41,25 @@ if __name__ == "__main__":
             file.close()
         print("done!")
     elif sys.argv[1] == '--invsaw':
-        pass
+        if compact:
+            file = open('inverted_saw_table_compact.h', 'w')
+            file.write(waveform_table.get_table('inverted_saw_compact'))
+            file.close()
+        else:
+            file = open('inverted_saw_table.h', 'w')
+            file.write(waveform_table.get_table('inverted_saw'))
+            file.close()
+        print("done!")
     elif sys.argv[1] == '--triangle':
-        pass
+        if compact:
+            file = open('triangle_table_compact.h', 'w')
+            file.write(waveform_table.get_table('triangle_compact'))
+            file.close()
+        else:
+            file = open('triangle_table.h', 'w')
+            file.write(waveform_table.get_table('triangle'))
+            file.close()
+        print("done!")
     else:
         print(f'blwftal: unknown operand \'{sys.argv[1]}\'\ntry \'blwftal --help\' for more information')
         sys.exit()
